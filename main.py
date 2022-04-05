@@ -339,6 +339,13 @@ def compare():
 
 
 def gradient_descent():
+    '''
+    Предлагает пользователю выбрать алгоритм решения, запрашивает у него данные и находит точку минимума, выбранным алгоритмом.
+            Параметры:
+                    None  
+            Возвращаемое значение:
+                    None
+    '''
     method = int(input(
         """
         Выберите метод решения:
@@ -372,6 +379,30 @@ def gradient_descent():
 
 
 def constant_gradient_descent(func, x0, alpha=0.1, max_iter=500, epsilon=1e-5, show_history=False, visualize=False):
+    '''
+    Находит точку минимума функции методом градиентного спуска с константным шагом.
+            Параметры:
+                    func (callable): 
+                        Исследуемая функция
+                    x0 (list): 
+                        Начальная точка в виде списка координат
+                    alpha (float, default=0.1): 
+                        Размер шага градиентного спуска
+                    max_iter (int, default=500): 
+                        Максимальное количество итераций
+                    epsilon (float, default=1e-5): 
+                        Значение критеия останова
+                    show_history (bool, default=False): 
+                        Если True, выводит на экран промежуточные значения
+                    visualize (bool, default=False)
+                        Если True, строит график функции и движение градиентного спуска
+                        
+            Возвращаемое значение:
+                    result (dict):
+                        словарь, значениями которого являются найденная точка и значение функции в ней
+                    history (pd.DataFrame):
+                        датафрейм с промежуточными значениями
+    '''
     x = np.array(x0, dtype=float)
     expr = sp.sympify(func)
     symbols = expr.free_symbols
@@ -416,6 +447,34 @@ def constant_gradient_descent(func, x0, alpha=0.1, max_iter=500, epsilon=1e-5, s
 
 
 def step_splitting_gd(func, x0, alpha0=0.1, delta=0.1, gamma=0.1, max_iter=500, epsilon=1e-5, show_history=False, visualize=False):
+    '''
+    Находит точку минимума функции методом градиентного спуска с дроблением шага.
+            Параметры:
+                    func (callable): 
+                        Исследуемая функция
+                    x0 (list): 
+                        Начальная точка в виде списка координат
+                    alpha0 (float, default=0.1): 
+                        Размер начального шага градиентного спуска
+                    delta (float, default=0.1):
+                        Значение параметра оценки
+                    gamma (float, default=0.1):
+                        Значение параметра дробления
+                    max_iter (int, default=500): 
+                        Максимальное количество итераций
+                    epsilon (float, default=1e-5): 
+                        Значение критеия останова
+                    show_history (bool, default=False): 
+                        Если True, выводит на экран промежуточные значения
+                    visualize (bool, default=False)
+                        Если True, строит график функции и движение градиентного спуска
+                        
+            Возвращаемое значение:
+                    result (dict):
+                        словарь, значениями которого являются найденная точка и значение функции в ней
+                    history (pd.DataFrame):
+                        датафрейм с промежуточными значениями
+    '''
     x = np.array(x0, dtype=float)
     expr = sp.sympify(func)
     symbols = expr.free_symbols
@@ -473,6 +532,28 @@ def step_splitting_gd(func, x0, alpha0=0.1, delta=0.1, gamma=0.1, max_iter=500, 
 
 
 def fastest_gd(func, x0, max_iter=500, epsilon=1e-5, show_history=False, visualize=False):
+    '''
+    Находит точку минимума функции методом наискорейшего градиентного спуска.
+            Параметры:
+                    func (callable): 
+                        Исследуемая функция
+                    x0 (list): 
+                        Начальная точка в виде списка координат
+                    max_iter (int, default=500): 
+                        Максимальное количество итераций
+                    epsilon (float, default=1e-5): 
+                        Значение критеия останова
+                    show_history (bool, default=False): 
+                        Если True, выводит на экран промежуточные значения
+                    visualize (bool, default=False)
+                        Если True, строит график функции и движение градиентного спуска
+                        
+            Возвращаемое значение:
+                    result (dict):
+                        словарь, значениями которого являются найденная точка и значение функции в ней
+                    history (pd.DataFrame):
+                        датафрейм с промежуточными значениями
+    '''
     x = np.array(x0, dtype=float)
     expr = sp.sympify(func)
     symbols = expr.free_symbols
@@ -522,6 +603,28 @@ def fastest_gd(func, x0, max_iter=500, epsilon=1e-5, show_history=False, visuali
 
 
 def conjugate_gradient_method(func, x0, max_iter=500, epsilon=1e-5, show_history=False, visualize=False):
+    '''
+    Находит точку минимума функции методом Ньютона-сопряжённого градиента.
+            Параметры:
+                    func (callable): 
+                        Исследуемая функция
+                    x0 (list): 
+                        Начальная точка в виде списка координат
+                    max_iter (int, default=500): 
+                        Максимальное количество итераций
+                    epsilon (float, default=1e-5): 
+                        Значение критеия останова
+                    show_history (bool, default=False): 
+                        Если True, выводит на экран промежуточные значения
+                    visualize (bool, default=False)
+                        Если True, строит график функции и движение градиентного спуска
+                        
+            Возвращаемое значение:
+                    result (dict):
+                        словарь, значениями которого являются найденная точка и значение функции в ней
+                    history (pd.DataFrame):
+                        датафрейм с промежуточными значениями
+    '''
     x = np.array(x0, dtype=float)
     expr = sp.sympify(func)
     symbols = expr.free_symbols
