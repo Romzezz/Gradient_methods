@@ -149,6 +149,18 @@ def combined_brent(func, bounds, accuracy=None, max_iter=None, show_interim_resu
 
 
 def _gradient(expr, point):
+    '''
+    Считает значение градиента функции в точке.
+            Параметры:
+                    expr (sympy.expression): 
+                        функция, значение градиента которой считается
+                    point (list): 
+                        точка, в которой считается значение градиента
+                        
+            Возвращаемое значение:
+                    grad (np.array):
+                        numpy массив со значениями градиента
+    '''
     grad = []
     symbols = list(expr.free_symbols)
     sub = dict(zip(symbols, point))
@@ -162,6 +174,17 @@ def _gradient(expr, point):
 
 
 def _visualize(func, history):
+    '''
+    Строит 3d график функции и scatter plot движения градиента.
+            Параметры:
+                    func (callable): 
+                        функция, график которой строится
+                    history (pd.DataFrame): 
+                        датафрейм с промежуточными значеями
+                        
+            Возвращаемое значение:
+                    None
+    '''
     x_points = [point[0] for point in history['x']]
     y_points = [point[1] for point in history['x']]
     x_min, x_max = min(x_points), max(x_points)
@@ -185,6 +208,26 @@ def _visualize(func, history):
 
 
 def ask_input(ask_alpha=False, ask_alpha0=False, ask_delta=False, ask_gamma=False, ask_history=False, ask_visualizing=False):
+    '''
+    Запрашивает у пользователя входные данные.
+            Параметры:
+                    ask_alpha (bool, default=False): 
+                        Если True, запращивает у пользователя константный шаг
+                    ask_alpha0 (bool, default=False): 
+                        Если True, запрашивает у пользователя начальный шаг
+                    ask_delta (bool, default=False): 
+                        Если True, запрашивает у пользователя значение параметра оценки
+                    ask_gamma (bool, default=False): 
+                        Если True, запрашивает у пользователя значение параметра дробления
+                    ask_history (bool, default=False): 
+                        Если True, спрашивает у пользователя, выводить ли промежуточные результаты?
+                    ask_visualizing (bool, default=False): 
+                        Если True, спрашивает у пользователя, визуализировать ли результаты?
+                        
+            Возвращаемое значение:
+                    result (dict):
+                        словарь, значениями которого являются введённые пользователем значения
+    '''
     result = dict()
     func = input('Введите функцию в аналитическом виде: ')
     result['func'] = func
@@ -233,6 +276,13 @@ def ask_input(ask_alpha=False, ask_alpha0=False, ask_delta=False, ask_gamma=Fals
 
 
 def compare():
+    '''
+    Запрашивает у пользователя входные данные через и выводит на экран таблицу с результатами работы всех алгоритмов.
+            Параметры:
+                    None  
+            Возвращаемое значение:
+                    None
+    '''
     data = ask_input(1, 1, 1, 1)
     values = [['Полученное решение', 'Время выполнения (ms)', 'Количество итераций']]
     i_to_algo = {1: constant_gradient_descent, 2: step_splitting_gd,
