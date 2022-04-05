@@ -390,22 +390,3 @@ def conjugate_gradient_method(func, x0, max_iter=500, epsilon=1e-5, show_history
             _visualize(lambdifyed, history)
 
     return {'point': np.array([round(val, accuracy) for val in x]), 'f': round(f_x, accuracy)}, history
-
-
-# In[16]:
-
-
-gradient_descent()
-
-
-# In[13]:
-
-
-compare()
-
-
-# In[ ]:
-
-
-
-
