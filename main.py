@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 from IPython.display import display, HTML
 from scipy.optimize import line_search, fmin
-from one_dim_optimization import *
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import time
