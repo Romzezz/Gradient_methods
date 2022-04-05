@@ -12,22 +12,21 @@
 		<h4>Решить свою задачу можно в <a href="https://colab.research.google.com/drive/1zuTTM7TLW63dvQVWDKarm85QJQpcp0GD?usp=sharing">Google Colab</a> </h4>
 		<hr>
 		<h3>Примеры решения задач</h3>
-		<h5>Ввод параметров функции: </h5> 
-		<img src=""
-		     height="210px">
-		<h5>Вывод: </h5>                                                
-		<img src=""
-		     height="322px">
-		<h5>Ввод параметров функции и вывод : </h5> 
-		<img src=""
-		     height="210px">
-		<hr>
-		<h4>Ввод параметров функции: </h4>
-		<img src=""
+		<h5>Ввод параметров для таблицы сравнения: </h5> 
+		<img src="images/i1.1.png"
 		     height="150px">
-		<h5>Вывод таблицы: </h5> 
-		<img src=""
-		     height="60px">
+		<h5>Вывод: </h5>                                                
+		<img src="images/i1.2.png"
+		     height="80px">
+		<h5>Ввод параметров функции : </h5> 
+		<img src="images/i2.1.png"
+		     height="300px">
+		<h5>График: </h5>
+		<img src="images/i2.2.png"
+		     height="300px">
+		<h5>Вывод функции: </h5> 
+		<img src="images/i2.3.png"
+		     height="20px">
 		<hr>
 		<h3>Участники проекта</h3>
 		<h4>
